@@ -1,0 +1,13 @@
+.ruleta-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow {
+    width: 0;
+    height: 0;
+    border-bottom: 25px solid transparent;
+    border-top: 25px solid transparent;
+    border-right: 50px solid #000;
+}
