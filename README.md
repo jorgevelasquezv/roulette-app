@@ -1,50 +1,91 @@
-# React + TypeScript + Vite
+# Roulette App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+¡Bienvenido a la Roulette App! Esta aplicación web permite a los usuarios crear y girar una ruleta personalizada con diferentes opciones. Está construida con React y TypeScript, y utiliza Vite como herramienta de construcción.
 
-Currently, two official plugins are available:
+## Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Ruleta Personalizada**: Los usuarios pueden ingresar sus propias opciones para la ruleta.
+- **Animación de Giro**: La ruleta gira con una animación suave y selecciona una opción al azar.
+- **Interfaz Intuitiva**: La aplicación tiene una interfaz de usuario simple y fácil de usar.
+- **Context API**: Utiliza la Context API de React para manejar el estado global de las preguntas.
 
-## Expanding the ESLint configuration
+## Estructura del Proyecto
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+roulette-app/
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package.json
+├── public/
+├── README.md
+├── src/
+│   ├── App.css
+│   ├── App.tsx
+│   ├── assets/
+│   ├── components/
+│   │   ├── button/
+│   │   │   └── Button.tsx
+│   │   └── wheel/
+│   │       ├── Wheel.css
+│   │       └── Wheel.tsx
+│   ├── context/
+│   │   ├── useWheelContext.tsx
+│   │   ├── wheelContext.tsx
+│   │   └── wheelProvider.tsx
+│   ├── hooks/
+│   │   └── useWheel.tsx
+│   ├── index.css
+│   ├── lib/
+│   │   └── conts.ts
+│   ├── main.tsx
+│   ├── pages/
+│   │   └── WheelPage.tsx
+│   └── vite-env.d.ts
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Instalación
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+1. Clona el repositorio:
+   ```sh
+   git clone https://github.com/tu-usuario/roulette-app.git
+   ```
+2. Navega al directorio del proyecto:
+   ```sh
+   cd roulette-app
+   ```
+3. Instala las dependencias:
+   ```sh
+   npm install
+   ```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Uso
+
+1. Inicia el servidor de desarrollo:
+   ```sh
+   npm run dev
+   ```
+2. Abre tu navegador y navega a `http://localhost:3000` para ver la aplicación en acción.
+
+## Scripts Disponibles
+
+- `npm run dev`: Inicia el servidor de desarrollo.
+- `npm run build`: Compila la aplicación para producción.
+- `npm run lint`: Ejecuta ESLint para encontrar y arreglar problemas en el código.
+- `npm run preview`: Previsualiza la aplicación compilada.
+
+## Contribución
+
+¡Las contribuciones son bienvenidas! Si tienes alguna sugerencia o encuentras algún problema, por favor abre un issue o envía un pull request.
+
+## Licencia
+
+Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles.
+
+---
+
+¡Gracias por usar la Roulette App!
