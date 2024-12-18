@@ -1,11 +1,21 @@
 import Button from "../components/button/Button";
+import CheckboxRemoveQuestion from "../components/checkbox/CheckboxRemoveQuestion";
 import Wheel from "../components/wheel/Wheel";
 import { useWheelContext } from "../context/useWheelContext";
 import { useWheel } from "../hooks/useWheel";
 
 const WheelPage = () => {
-  const {questions} = useWheelContext();
-  const {colors, handleTextareaChange, resetWheel, rotation, selectedQuestion, spinWheel} = useWheel();  
+  const { questions } = useWheelContext();
+  const {
+    colors,
+    handleTextareaChange,
+    handleRemoveQuestion,
+    isRemoveQuestion,
+    resetWheel,
+    rotation,
+    selectedQuestion,
+    spinWheel,
+  } = useWheel();
 
   return (
     <>
@@ -34,9 +44,16 @@ const WheelPage = () => {
             name="questions"
             id="questions-area"
             className="questions-area"
+            placeholder="Ingresa los datos finalizando con un enter para cada uno"
             onChange={handleTextareaChange}
           ></textarea>
           <div>
+            <CheckboxRemoveQuestion
+              label="Eliminar pregunta seleccionada"
+              checked={isRemoveQuestion}
+              onChange={handleRemoveQuestion}
+            />
+
             <Button className="spin-button" onClick={spinWheel}>
               Girar
             </Button>

@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback, useRef } from "react";
+import { useState, useMemo, useCallback, useRef, ChangeEvent } from "react";
 import {
   INITIAL_QUESTIONS,
   INITIAL_COLORS,
@@ -12,8 +12,24 @@ export const useWheel = () => {
   const [selectedQuestion, setSelectedQuestion] = useState<string>();
   const [rotation, setRotation] = useState(0);
   const actualQuestions = useRef<string[]>(questions);
+  const [isRemoveQuestion, setIsRemoveQuestion] = useState(true);
 
   const colors = useMemo(() => INITIAL_COLORS, []);
+
+  const handleRemoveQuestion = (e: ChangeEvent<HTMLInputElement>) => {
+    setIsRemoveQuestion(e.target.checked);
+  };
+
+  const removeQuestions = () => {
+    if (isRemoveQuestion){
+      if (actualQuestions.current.length > 1 ){
+        actualQuestions.current =  actualQuestions.current.filter(
+          (question) => question !== selectedQuestion
+        );
+      };
+      setQuestions(actualQuestions.current);
+    }
+  }
 
   const calculateSelectedQuestionIndex = (newRotation: number) => {
     const degreesPerSegment = 360 / actualQuestions.current.length;
@@ -22,11 +38,7 @@ export const useWheel = () => {
   };
   
   const spinWheel = () => {
-    if (actualQuestions.current.length > 1 ){
-      actualQuestions.current =  actualQuestions.current.filter(
-        (question) => question !== selectedQuestion
-      );
-    };
+    removeQuestions();
     setSelectedQuestion("");
     const newRotation = rotation + Math.floor(Math.random() * 360) + INITIAL_ROTATION;
     setRotation(newRotation);
@@ -34,7 +46,6 @@ export const useWheel = () => {
     setTimeout(() => {
       setSelectedQuestion(actualQuestions.current[calculateSelectedQuestionIndex(newRotation)]);
     }, TRANSITION_DURATION);
-    setQuestions(actualQuestions.current);
   };
 
   const handleTextareaChange = useCallback(
@@ -65,8 +76,10 @@ export const useWheel = () => {
     selectedQuestion,
     rotation,
     colors,
+    isRemoveQuestion,
     spinWheel,
     handleTextareaChange,
+    handleRemoveQuestion,
     resetWheel,
   };
 };
