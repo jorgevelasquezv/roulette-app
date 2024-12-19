@@ -1,5 +1,5 @@
 import "@testing-library/jest-dom";
-import 'jest-canvas-mock';
+import 'canvas';
 
 window.matchMedia = (query) => ({
   matches: false,

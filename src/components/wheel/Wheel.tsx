@@ -43,7 +43,7 @@ const Wheel: React.FC<WheelProps> = ({ questions, rotation, onSpin, colors }) =>
       ctx.rotate((startAngleRad + endAngleRad) / 2);
       ctx.textAlign = "right";
       ctx.fillStyle = "#000";
-      ctx.font = "bold 16px Arial"; // Ajustar la fuente a negrita
+      ctx.font = "bold 16px Arial";
       ctx.fillText(question, radius - 10, 10, radius * 0.75);
       ctx.restore();
     });
