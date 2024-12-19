@@ -2,6 +2,8 @@
 
 ¡Bienvenido a la Roulette App! Esta aplicación web permite a los usuarios crear y girar una ruleta personalizada con diferentes opciones. Está construida con React y TypeScript, y utiliza Vite como herramienta de construcción.
 
+Puedes probar la aplicación en vivo en el siguiente enlace: [Roulette App en Vivo](https://lucky-roulette.netlify.app/)
+
 ![Roulette App](./RouletteApp.png)
 
 ## Características
