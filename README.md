@@ -73,7 +73,7 @@ roulette-app/
    ```sh
    npm run dev
    ```
-2. Abre tu navegador y navega a `http://localhost:3000` para ver la aplicación en acción.
+2. Abre tu navegador y navega a `http://localhost:5173` para ver la aplicación en acción.
 
 ## Scripts Disponibles
 
