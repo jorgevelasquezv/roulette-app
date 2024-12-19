@@ -64,6 +64,7 @@ const Wheel: React.FC<WheelProps> = ({ questions, rotation, onSpin, colors }) =>
           transition: "transform 4s cubic-bezier(0.33, 1, 0.68, 1)",
         }}
         onClick={onSpin}
+        role="img"
       ></canvas>
       <div className="arrow"></div>
     </div>
